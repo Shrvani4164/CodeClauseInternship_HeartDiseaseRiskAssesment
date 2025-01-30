@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Risk Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #e63946;
+        }
+        .message {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #2a9d8f;
+        }
+        .avoidance-message {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #e76f51;
+        }
+        .motivational-message {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #264653;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Heart Disease Risk Prediction</h1>
+    <form action="/" method="POST">
+        <input type="number" name="age" placeholder="Enter Age" required>
+        <input type="number" name="blood_pressure" placeholder="Enter Blood Pressure (mmHg)" required>
+        <input type="number" name="cholesterol" placeholder="Enter Cholesterol Level (mg/dL)" required>
+        <input type="number" name="smoking" placeholder="Smoking (1 = Yes, 0 = No)" required>
+        <button type="submit">Predict Risk</button>
+    </form>
+
+    {% if result %}
+        <div class="result">{{ result }}</div>
+        {% if avoidance_message %}
+            <div class="avoidance-message">{{ avoidance_message }}</div>
+        {% endif %}
+        <div class="message">{{ message }}</div>
+        <div class="motivational-message">{{ motivational_message }}</div>
+    {% endif %}
+</div>
+
+</body>
+</html>
